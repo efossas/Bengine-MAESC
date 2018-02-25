@@ -28,7 +28,12 @@
 	"processes":1,
 	"services":
 	{
-		"sage":"http://qsage:9601"
+		"sage":"http://qsage:9601",
+		"python2":"http://qpython2:9602",
+                "audio":"http://ffmpeg:9001",
+                "image":"http://imagemagick:9002",
+                "slide":"http://unoconv:9003",
+                "video":"http://ffmpeg:9001"
 	},
 	"session":
 	{
