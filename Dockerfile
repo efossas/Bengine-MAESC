@@ -4,7 +4,14 @@ MAINTAINER Academic Systems
 # update, upgrade, & install packages
 
 RUN apk update && apk upgrade
-RUN apk add coreutils git nodejs-npm openssl wget yarn
+RUN apk add coreutils git openssl wget
+
+# npm upgrade to avoid issue: 17858
+# also, can't do manual install of latest cause of issue: 18524
+# and then there's this other issue with any alpine npm upgrade: 15558
+# wtf, no wonder the yarn package manager was invented, had to remove though cause it conflicted with npm
+# npm install only works when inlined like this, weird, hacky, sigh
+RUN apk add nodejs-npm && apk add --update nodejs-npm && npm install npm@latest -g
 
 # install node and npm
 
@@ -14,7 +21,7 @@ RUN export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.s
 # configure bengine
 
 RUN git clone https://github.com/academicsystems/Bengine /var/www
-RUN cd /var/www && chmod 744 ./scripts/*.sh && chmod 744 ./tools/*.sh && npm install
+RUN cd /var/www && chmod 744 ./scripts/*.sh && chmod 744 ./tools/*.sh && npm install --unsafe-perm
 
 # add files for running container
 
