@@ -1,4 +1,4 @@
-FROM alpine
+eROM alpine
 MAINTAINER Academic Systems
 
 # update, upgrade, & install packages
@@ -11,7 +11,8 @@ RUN apk add coreutils git openssl wget
 # and then there's this other issue with any alpine npm upgrade: 15558
 # wtf, no wonder the yarn package manager was invented, had to remove though cause it conflicted with npm
 # npm install only works when inlined like this, weird, hacky, sigh
-RUN apk add nodejs-npm && apk add --update nodejs-npm && npm install npm@latest -g
+# okay... now this issue requires a downgrade: 19989 ...ugh
+RUN apk add nodejs-npm && apk add --update nodejs-npm && npm install npm@5.6.0 -g
 
 # install node and npm
 
