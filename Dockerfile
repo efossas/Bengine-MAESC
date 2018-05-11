@@ -1,4 +1,4 @@
-eROM alpine
+FROM alpine
 MAINTAINER Academic Systems
 
 # update, upgrade, & install packages
