@@ -3,7 +3,7 @@
 # validate argument
 if [ $# -ne 2 ]
 then
-  echo "Usage: compose.sh [tag] [domain]";
+  echo "Usage: compose.sh [docker repository] [domain endpoint]";
   exit 1;
 fi
 
@@ -46,7 +46,7 @@ if [ ! -f ./volume/config/config.json ]
     response=$(askfile "Use existing config.json?")
     if ! $response; then
       printf "\nCopying config.json..."
-      cp ../assets/config.json ./volume/config.json
+      cp ../assets/config.json ./volume/config/config.json
     fi
 fi
 

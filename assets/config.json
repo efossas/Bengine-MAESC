@@ -12,6 +12,7 @@
 	"filesizelimit":104857600,
 	"host":"localhost",
 	"level":"dev",
+	"logging":-1,
 	"persistence":
 	{
 		"database":"",
@@ -28,17 +29,35 @@
 	"processes":1,
 	"services":
 	{
-		"sage":"http://qsage:9601",
-		"python2":"http://qpython2:9602",
-                "audio":"http://ffmpeg:9001",
-                "image":"http://imagemagick:9002",
-                "slide":"http://unoconv:9003",
-                "video":"http://ffmpeg:9001"
+		"sage":
+		{
+    		"url":"http://qsage:9601"
+		},
+		"python2":
+		{
+    		"url":"http://qpython2:9602"
+		},
+		"audio":
+		{
+    		"url":"http://ffmpeg:80"
+		},
+		"image":
+		{
+    		"url":"http://imagemagick:80"
+		},
+		"slide":
+		{
+    		"url":"http://unoconv:80"
+		},
+		"video":
+		{
+    		"url":"http://ffmpeg:80"
+		}
 	},
 	"session":
 	{
 		"key":"xsessionkey",
-		"secret":"replace_this_secret",
+		"secret":"KZtX0C0qlhvi)d",
 		"resave":false,
 		"saveUninitialized":false
 	},

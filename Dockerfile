@@ -21,7 +21,7 @@ RUN export NVM_DIR="$HOME/.nvm" && [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.s
 
 # configure bengine
 
-RUN git clone https://github.com/academicsystems/Bengine /var/www
+RUN git clone -b 0.0.1 https://github.com/efossas/Bengine /var/www
 RUN cd /var/www && chmod 744 ./scripts/*.sh && chmod 744 ./tools/*.sh && npm install --unsafe-perm
 
 # add files for running container

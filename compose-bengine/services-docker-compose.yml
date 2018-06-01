@@ -1,0 +1,37 @@
+version: '3.3'
+services:
+  sage:
+    image: "asystems/sagemath:latest"
+    container_name: "sage"
+    ports:
+     - "9601:9601"
+    expose:
+     - "9601"
+  python2:
+    image: "asystems/python2.7:latest"
+    container_name: "python2"
+    ports:
+     - "9602:9602"
+    expose:
+     - "9602"
+  ffmpeg:
+    image: "asystems/ffmpeg:latest"
+    container_name: "ffmpeg"
+    ports:
+     - "9001:80"
+    expose:
+     - "80"
+  imagemagick:
+    image: "asystems/imagemagick:latest"
+    container_name: "imagemagick"
+    ports:
+     - "9002:80"
+    expose:
+     - "80"
+  unoconv:
+    image: "asystems/unoconv:latest"
+    container_name: "unoconv"
+    ports:
+     - "9003:80"
+    expose:
+     - "80"
